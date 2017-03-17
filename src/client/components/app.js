@@ -1,10 +1,10 @@
 import Vue from 'vue';
 
-export default Vue.component('App', {
+export default Vue.component('app', {
   template: `
-    <div id="appo">
+    <div>
       <img src="./assets/logo.png">
-      Test
+      Test {{a}}
       <router-view></router-view>
     </div>
   `,
