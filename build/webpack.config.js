@@ -1,4 +1,5 @@
 var CopyWebpackPlugin = require('copy-webpack-plugin');
+var nodeExternals = require('webpack-node-externals');
 
 var copySources = new CopyWebpackPlugin([
   {
@@ -58,7 +59,30 @@ module.exports = [
     target: 'node',
     output: {
       path: './dist/server',
-      filename: 'apka.js'
+      filename: 'apka.js',
+      libraryTarget: 'commonjs'
+    },
+    // externals: [
+    //   nodeExternals({
+    //     whitelist: [
+    //       'mongoose'
+    //     ]
+    //   })
+    // ],
+    externals: [
+        /^(?!\.|\/).+/i,
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.node$/,
+          loader: 'node-loader'
+        },
+        {
+          test: /\.json($|\?)/,
+          loader: 'json-loader'
+        }
+      ]
     }
   }
 ];

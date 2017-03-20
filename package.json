@@ -13,7 +13,10 @@
   "dependencies": {
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
-    "express": "^4.15.2"
+    "express": "^4.15.2",
+    "mongoose": "^4.9.1",
+    "mongodb-core": "^2.1.9",
+    "bson": "^1.0.4"
   },
   "devDependencies": {
     "babel-core": "^6.22.1",
@@ -66,11 +69,14 @@
     "rimraf": "^2.6.0",
     "url-loader": "^0.5.7",
     "vue-loader": "^11.1.4",
+    "node-loader": "^0.6.0",
+    "json-loader": "^0.5.4",
     "vue-style-loader": "^2.0.0",
     "vue-template-compiler": "^2.2.4",
     "webpack": "^2.2.1",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
+    "webpack-node-externals": "^1.5.4",
     "webpack-merge": "^2.6.1"
   },
   "engines": {
