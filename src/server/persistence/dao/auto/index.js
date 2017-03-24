@@ -17,17 +17,18 @@ export function saveCombustion(data) {
 };
 
 export function getMaxMilage(autoId) {
-  connector.connect();
-  let combustion = new TankModel(test);
-
-  return CombustionModel.findOne({
-    autoId: autoId
-  }, function (err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log('Combustion saved.');
-    }
-    connector.disconnect();
-  });
+  // connector.connect();
+  // let combustion = new CombustionModel(test);
+  //
+  // return CombustionModel.findOne({
+  //   autoId: autoId
+  // }, function (err) {
+  //   if (err) {
+  //     console.log(err);
+  //   } else {
+  //     console.log('Combustion saved.');
+  //   }
+  //   connector.disconnect();
+  // });
+  return 0;
 };

@@ -1,8 +1,14 @@
 import * as autoDao from '../../persistence/dao/auto';
 
 export function saveCombustion(data) {
-  let prevMilage = 0;
   let combustion = {};
+  let errorMessage = [];
+
+  let prevMilage = autoDao.getMaxMilage(data.autoId) | 0;
+
+  if (!data.autoId) {
+    errorMessage.push('Combustion should be linked with some vehicle.');
+  }
 
   if (data.milage) {
     combustion.milage = data.milage;
@@ -11,7 +17,7 @@ export function saveCombustion(data) {
     combustion.totalMilage = data.totalMilage;
     combustion.milage = data.totalMilage - prevMilage;
   } else {
-    // throw error
+    errorMessage.push('Milage or Total Milage must be provided.');
   }
 
   if (data.literAmount && data.literPrice) {
@@ -27,9 +33,18 @@ export function saveCombustion(data) {
     combustion.literPrice = data.literPrice;
     combustion.totalPrice = data.totalPrice;
   } else {
-    // throw error
+    errorMessage.push('Two of Liter Amount, Liter Price or Total Price must be provided.');
   }
 
+  if (errorMessage.length > 0) {
+    let error = errorMessage.reduce((prev, current) => {
+      return `${prev}\n${current}`;
+    });
+
+    throw new Error(error);
+  }
+
+  combustion.autoId = data.autoId;
   combustion.combustion = combustion.literAmount / combustion.milage * 100;
   combustion.date = data.date ? data.date : new Date();
 

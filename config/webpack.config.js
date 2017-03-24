@@ -20,9 +20,10 @@ module.exports = [
       filename: 'apka.js'
     },
     resolve: {
-      extensions: ['.js', '.vue'],
+      extensions: ['.js', '.vue', '.json'],
       alias: {
         'vue$': 'vue/dist/vue.esm.js',
+        'test$': resolve('test'),
         '@': resolve('src')
       }
     },
@@ -61,6 +62,15 @@ module.exports = [
       path: './dist/server',
       filename: 'apka.js',
       libraryTarget: 'commonjs'
+    },
+    resolve: {
+      extensions: ['.js', '.vue', '.json'],
+      alias: {
+        'test$': resolve('test/'),
+        'persistence$': './src/server/persistence/',
+        'service@': resolve('src/server/service/'),
+        'rest@': resolve('src/server/rest/')
+      }
     },
     // externals: [
     //   nodeExternals({
