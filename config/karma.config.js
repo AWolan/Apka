@@ -7,8 +7,14 @@ module.exports = function (config) {
     reporters: ['spec', 'coverage'],
     files: ['../test/client/index.js'],
     preprocessors: {
-      '../test/client/index.js': ['webpack', 'babel']
-      // '../test/**/*.spec.js': ['webpack', 'babel']
+      '../test/client/index.js': ['babel', 'webpack']
+      // '../test/**/*.spec.js': ['webpack']
+    },
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        sourceMap: 'inline'
+      }
     },
     webpack: webpackConfig,
     webpackMiddleware: {
