@@ -5,9 +5,9 @@ import * as autoDao from '../../../../src/server/persistence/dao/auto';
 
 const assert = chai.assert;
 
-describe('autoService', function() {
-  describe('saveCombustion', function() {
-    it('should throw error when data is empty', function() {
+describe('autoService', () => {
+  describe('saveCombustion', () => {
+    it('should throw error when data is empty', () => {
       // given
       let data = {};
       let errorMessage = 'Combustion should be linked with some vehicle.\n'
@@ -18,7 +18,7 @@ describe('autoService', function() {
       assert.throws(() => autoService.saveCombustion(data), Error, errorMessage);
     });
 
-    it('should throw error when there is no autoId', function() {
+    it('should throw error when there is no autoId', () => {
       // given
       let data = {
         milage: 400,
@@ -31,7 +31,7 @@ describe('autoService', function() {
       assert.throws(() => autoService.saveCombustion(data), Error, errorMessage);
     });
 
-    it('should throw error when Milage and Total Milage are not provided', function() {
+    it('should throw error when Milage and Total Milage are not provided', () => {
       // given
       let data = {
         autoId: 1000,
@@ -44,7 +44,7 @@ describe('autoService', function() {
       assert.throws(() => autoService.saveCombustion(data), Error, errorMessage);
     });
 
-    it('should throw error when Liter Amount, Liter Price and Total Price are not provided', function() {
+    it('should throw error when Liter Amount, Liter Price and Total Price are not provided', () => {
       // given
       let data = {
         autoId: 1000,
@@ -56,7 +56,7 @@ describe('autoService', function() {
       assert.throws(() => autoService.saveCombustion(data), Error, errorMessage);
     });
 
-    it('should save combustion', function() {
+    it('should save combustion', () => {
       // given
       let now = new Date();
       let autoId = 1000;

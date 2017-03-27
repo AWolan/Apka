@@ -4,7 +4,7 @@ module.exports = {
   target: 'node',
   externals: [nodeExternals()],
   resolve: {
-    extensions: ['.js', '.vue', '.json'],
+    extensions: ['.js', '.json'],
     alias: {
       'persistence$': 'src/server/persistence',
       'nm': 'node_modules',

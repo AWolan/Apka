@@ -1,6 +1,7 @@
 node_modules/
 dist/
 db/
+test/coverage/
 .tmp/
 npm-debug.log
 yarn-error.log
