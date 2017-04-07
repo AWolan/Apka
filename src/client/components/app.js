@@ -20,7 +20,7 @@ export default Vue.component('app', {
     }
   },
   // data available from template
-  data: {},
+  data: () => {},
 
   computed: {},
   // methods available from template

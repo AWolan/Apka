@@ -8,8 +8,9 @@
     "dev": "npm run cleanup && npm run dev-build && npm run test",
     "dev-build": "yarn && webpack --config config/webpack.config.js",
     "test": "npm run test-server && npm run test-client",
-    "test-client": "karma start config/karma.config.js --single-run",
-    "test-server": "mocha-webpack --growl --colors --webpack-config config/webpack.config-test.js \"test/**/*.spec.js\"",
+    "test-client2": "karma start config/karma.config.js --single-run",
+    "test-client": "mocha-webpack --growl --colors --webpack-config config/webpack.client-test.config.js \"test/client/**/*.spec.js\"",
+    "test-server": "mocha-webpack --growl --colors --webpack-config config/webpack.server-test.config.js \"test/server/**/*.spec.js\"",
     "cleanup": "rimraf dist/",
     "dev-serve": "node dist/server/apka.js"
   },
